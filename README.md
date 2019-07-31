@@ -5,7 +5,7 @@ Small SDL2 demo inspired by the famous AmigaBASIC demo (on the Extras disk).
 Sometime in the mid '80s, I bought myself an Amiga 500. On the Extras disk,
 there was an AmigaBASIC demo that had a profound effect on me. We used to
 call it "the Bach demo", because it drew a line effect, which I thought was
-really cool, to Jesu Joy of Man's Desiring by J.S. Bach.
+really cool, to Jesu, Joy of Man's Desiring by J.S. Bach.
 
 I could watch the demo for hours on end. It inspired me to learn about the
 Blitter's line drawing mode so that I could recreate the demo in assmebly.
