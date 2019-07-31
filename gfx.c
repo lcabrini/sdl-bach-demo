@@ -94,5 +94,7 @@ void update(void)
 {
     SDL_RenderCopy(renderer, texture, NULL, NULL);
     SDL_RenderPresent(renderer);
-    lines = lines->next;
+
+    if (!(flags & PAUSED))
+        lines = lines->next;
 }

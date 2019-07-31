@@ -3,6 +3,7 @@
 int main(int argc, char *argv[])
 {
     atexit(close_sdl);
+    flags = 0;
     init_sdl();
     init_music();
 

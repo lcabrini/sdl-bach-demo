@@ -11,6 +11,18 @@ void handle_events(void)
             case SDL_QUIT:
                 exit(0);
                 break;
+
+            case SDL_KEYDOWN:
+                switch (e.key.keysym.sym)
+                {
+                    case SDLK_p:
+                        flags ^= PAUSED;
+                        if (Mix_PausedMusic())
+                            Mix_ResumeMusic();
+                        else
+                            Mix_PauseMusic();
+                        break;
+                }
         }
     }
 }

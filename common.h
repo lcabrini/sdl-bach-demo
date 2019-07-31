@@ -7,4 +7,8 @@
 #define LINE_STEP 10
 #define LINE_COUNT (LINES_PER_QUADRANT * 2)
 
+#define PAUSED 1
+
+unsigned char flags;
+
 #endif /* COMMON_H */
