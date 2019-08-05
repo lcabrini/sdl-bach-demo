@@ -33,6 +33,7 @@ void init_sdl(void)
         die("Could not create texture");
 
     lines = build_list();
+    line_count = 0;
 }
 
 void close_sdl(void)
@@ -76,7 +77,7 @@ void draw(void)
     g = AMIGA_GREEN;
     b = AMIGA_BLUE;
 
-    for (i = 0; i < LINE_COUNT; ++i)
+    for (i = 0; i < line_count; ++i)
     {
         r += rs;
         g += gs;
@@ -95,6 +96,10 @@ void update(void)
     SDL_RenderCopy(renderer, texture, NULL, NULL);
     SDL_RenderPresent(renderer);
 
-    if (!(flags & PAUSED))
+    if (!(flags & PAUSED)) {
         lines = lines->next;
+        ++line_count;
+        if (line_count > LINE_COUNT)
+            line_count = LINE_COUNT;
+    }
 }

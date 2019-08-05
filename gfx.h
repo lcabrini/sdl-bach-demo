@@ -23,5 +23,6 @@ SDL_Renderer *renderer;
 SDL_Texture *texture;
 
 struct node *lines;
+int line_count;
 
 #endif /* GFX_H */
