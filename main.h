@@ -6,6 +6,9 @@
 #include <SDL2/SDL_mixer.h>
 #include "common.h"
 
+#define FPS 20
+#define TICKS_PER_FRAME (1000 / FPS)
+
 void die(char *message);
 
 extern void init_sdl(void);
