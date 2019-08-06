@@ -33,7 +33,7 @@ void init_sdl(void)
         die("Could not create texture");
 
     lines = build_list();
-    line_count = 0;
+    line_count = 1;
 }
 
 void close_sdl(void)
@@ -59,9 +59,9 @@ void draw(void)
     int r, g, b;
     float rs, gs, bs;
 
-    rs = (255 - AMIGA_RED) / LINE_COUNT;
-    gs = (255 - AMIGA_GREEN) / LINE_COUNT;
-    bs = (255 - AMIGA_BLUE) / LINE_COUNT;
+    rs = (255 - AMIGA_RED) / line_count; //LINE_COUNT;
+    gs = (255 - AMIGA_GREEN) / line_count; //LINE_COUNT;
+    bs = (255 - AMIGA_BLUE) / line_count; //LINE_COUNT;
 
     SDL_SetRenderTarget(renderer, texture);
     SDL_SetRenderDrawColor(
