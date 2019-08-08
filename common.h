@@ -9,6 +9,15 @@
 
 #define PAUSED 1
 
+#ifdef DEBUG
+#define dprint(...) \
+    fprintf(stderr, "%s:%d: ", __FILE__, __LINE__); \
+    fprintf(stderr, __VA_ARGS__); \
+    fprintf(stderr, "\n");
+#else
+#define dprint(...)
+#endif
+
 unsigned char flags;
 
 #endif /* COMMON_H */
