@@ -75,7 +75,7 @@ struct line *create_line(int x1, int y1, int x2, int y2, struct line *p)
 {
     struct line *n;
 
-    n = malloc(sizeof(struct line*));
+    n = malloc(sizeof(struct line));
     n->x1 = x1;
     n->y1 = y1;
     n->x2 = x2;
@@ -90,7 +90,7 @@ struct line *insert_line(int x1, int y1, int x2, int y2, struct line *h)
 {
     struct line *n;
 
-    n = malloc(sizeof(struct line *));
+    n = malloc(sizeof(struct line));
     n->x1 = x1;
     n->y1 = y1;
     n->x2 = x2;
