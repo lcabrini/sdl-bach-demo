@@ -3,7 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include "common.h"
-#include "list.h"
+#include "line.h"
 
 #define SCREEN_TITLE "Bach"
 #define AMIGA_RED 0
@@ -22,7 +22,7 @@ SDL_Window *window;
 SDL_Renderer *renderer;
 SDL_Texture *texture;
 
-struct node *lines;
+struct line *current_line;
 int line_count;
 
 #endif /* GFX_H */

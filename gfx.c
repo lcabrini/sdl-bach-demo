@@ -32,7 +32,7 @@ void init_sdl(void)
     if (!texture)
         die("Could not create texture");
 
-    lines = build_list();
+    current_line = prepare_lines();
     line_count = 1;
 }
 
@@ -49,12 +49,12 @@ void close_sdl(void)
     if (window)
         SDL_DestroyWindow(window);
 
-    destroy_list(lines);
+    destroy_lines(current_line);
 }
 
 void draw(void)
 {
-    struct node *l;
+    struct line *l;
     int i;
     int r, g, b;
     float rs, gs, bs;
@@ -72,7 +72,7 @@ void draw(void)
             255);
     SDL_RenderClear(renderer);
 
-    l = lines;
+    l = current_line;
     r = AMIGA_RED;
     g = AMIGA_GREEN;
     b = AMIGA_BLUE;
@@ -97,7 +97,7 @@ void update(void)
     SDL_RenderPresent(renderer);
 
     if (!(flags & PAUSED)) {
-        lines = lines->next;
+        current_line = current_line->next;
         ++line_count;
         if (line_count > LINE_COUNT)
             line_count = LINE_COUNT;

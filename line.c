@@ -1,15 +1,15 @@
-#include "list.h"
+#include "line.h"
 
-struct node *build_list()
+struct line *prepare_lines()
 {
-    struct node *h = NULL;
-    struct node *p = NULL;
-    struct node *c = NULL;
+    struct line *h = NULL;
+    struct line *p = NULL;
+    struct line *c = NULL;
     int q;
 
     for (q = 0; q < LINES_PER_QUADRANT; ++q)
     {
-        c = create_node(
+        c = create_line(
                 LEFT,
                 LINE_STEP * (LINES_PER_QUADRANT - q),
                 LINE_STEP * q,
@@ -21,7 +21,7 @@ struct node *build_list()
 
     for (q = 0; q < LINES_PER_QUADRANT; ++q)
     {
-        c = create_node(
+        c = create_line(
                 RIGHT - LINE_STEP * (LINES_PER_QUADRANT - q),
                 TOP,
                 RIGHT,
@@ -32,7 +32,7 @@ struct node *build_list()
 
     for (q = 0; q < LINES_PER_QUADRANT; ++q)
     {
-        c = create_node(
+        c = create_line(
                 RIGHT,
                 BOTTOM - LINE_STEP * (LINES_PER_QUADRANT - q),
                 RIGHT - LINE_STEP * q,
@@ -43,7 +43,7 @@ struct node *build_list()
 
     for (q = 0; q < LINES_PER_QUADRANT; ++q)
     {
-        c = create_node(
+        c = create_line(
                 LEFT + LINE_STEP * (LINES_PER_QUADRANT - q),
                 BOTTOM,
                 LEFT,
@@ -56,10 +56,10 @@ struct node *build_list()
     return h;
 }
 
-void destroy_list(struct node *head)
+void destroy_lines(struct line *head)
 {
-    struct node *c;
-    struct node *n;
+    struct line *c;
+    struct line *n;
 
     c = head;
     while (c && c->next)
@@ -71,11 +71,11 @@ void destroy_list(struct node *head)
     }
 }
 
-struct node *create_node(int x1, int y1, int x2, int y2, struct node *p)
+struct line *create_line(int x1, int y1, int x2, int y2, struct line *p)
 {
-    struct node *n;
+    struct line *n;
 
-    n = malloc(sizeof(struct node*));
+    n = malloc(sizeof(struct line*));
     n->x1 = x1;
     n->y1 = y1;
     n->x2 = x2;
@@ -86,11 +86,11 @@ struct node *create_node(int x1, int y1, int x2, int y2, struct node *p)
     return n;
 }
 
-struct node *insert_node(int x1, int y1, int x2, int y2, struct node *h)
+struct line *insert_line(int x1, int y1, int x2, int y2, struct line *h)
 {
-    struct node *n;
+    struct line *n;
 
-    n = malloc(sizeof(struct node*));
+    n = malloc(sizeof(struct line *));
     n->x1 = x1;
     n->y1 = y1;
     n->x2 = x2;
